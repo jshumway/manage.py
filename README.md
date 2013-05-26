@@ -24,7 +24,8 @@ def createdb(drop=False):
     """
     Create the tables needed to run the application
 
-    If drop is True, then all tables will first be dropped. THIS DESTROYS ALL DATA IN THE DATABASE.
+    If drop is True, then all tables will first be dropped. THIS DESTROYS ALL
+    DATA IN THE DATABASE.
     """
 
     if drop:
@@ -36,7 +37,8 @@ def mkstaff(email, password, fname, lname, utype='staff'):
     """
     Create a new staff user
 
-    This user will be able to access /admin routes and edit things. By default, creates a 'staff' user, not an 'admin'.
+    This user will be able to access /admin routes and edit things. By
+    default, creates a 'staff' user, not an 'admin'.
     """
 
     staff = User(email, password, fname, lname, utype)
@@ -65,5 +67,8 @@ Usage manage.py mkstaff <email> <password> <fname> <lname> [utype=staff]
 
     Create a new staff user
 
-    This user will be able to access /admin routes and edit things. By default, creates a 'staff' user, not an 'admin'.
+    This user will be able to access /admin routes and edit things. By
+    default, creates a 'staff' user, not an 'admin'.
 ````
+
+For functions like `mkstaff`, an arg spec is automagically generated, with required arguments in `<arg_name>` and optional arguments in `[name=default_value]`.

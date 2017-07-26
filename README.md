@@ -1,13 +1,13 @@
 manage.py
 =========
 
-Create a simple CLI based on the contents of a manage.py module.
+Automatic generation of a command line interface given Python function definitions.
 
-`manage.py` was created to generate similar functionality to Django's manage.py for Flask apps. When `manage.py` is run, it looks at all of the functions defined at the top of the file, tries to run one, displays help, or shows a CLI summary.
+`manage.py` tries to be as helpful as possible. It includes help messages based on doc-comments, usage strings generated from  argument lists (including positional and keyword arguments), and generally tries to leverage Python's dynamic and reflective features.
 
-**Note:** manage.py is not meant to generate a CLI for an end user of a normal app. It is meant to be used to create a simple programmer/admin friendly CLI to control a web application. It is a nice way to call functions inside a file, really.
+**Note:** manage.py is not meant to generate a CLI for an end user of a normal app. It is intented to create a simple programmer/admin friendly interface to control a stateful (web) application.
 
-As an example of a good manage.py file for a Flask web application
+As an example of a `manage.py` file for a Flask web application
 
 ````python
 #!/usr/bin/env python
@@ -17,6 +17,7 @@ import project
 def runserver():
     """ Start the server """
 
+    project.config.validate()
     project.run()
 
 def createdb(drop=False):
